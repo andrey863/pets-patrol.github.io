@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Patrol — Притулок-готель та безпека міста | Подільський район</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            amber: '#FFFBEB',
+                            teal: '#0D9488',
+                            dark: '#1E293B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Навігація -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Логотип -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 bg-orange-500 rounded-2xl flex items-center justify-center text-white text-xl shadow-md group-hover:rotate-6 transition">
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-tight text-slate-900">Pets<span class="text-orange-500">Patrol</span></span>
+                        <span class="block text-[11px] font-bold uppercase tracking-wider text-teal-600">Подільський район</span>
+                    </div>
+                </a>
+
+                <!-- Меню -->
+                <nav class="hidden md:flex items-center gap-7 font-bold text-slate-600">
+                    <a href="#shelter" class="hover:text-orange-500 transition">Притулок</a>
+                    <a href="#hotel" class="hover:text-orange-500 transition">Зоо-готель</a>
+                    <a href="#hand-to-hand" class="hover:text-orange-500 transition">«З рук в руки»</a>
+                    <a href="#services" class="hover:text-orange-500 transition">Вет-сервіс та Безпека</a>
+                    <a href="#forum" class="hover:text-orange-500 transition">Форум</a>
+                </nav>
+
+                <!-- Кнопки дій -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openModal('reportModal')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-50 text-red-600 font-bold text-sm hover:bg-red-100 transition">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Повідомити про зграю
+                    </button>
+                    <a href="#hotel" class="px-5 py-2.5 rounded-xl bg-orange-500 text-white font-bold text-sm shadow-md shadow-orange-500/20 hover:bg-orange-600 transition">
+                        Забронювати готель
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Головний екран (Hero) -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-amber-50 via-white to-teal-50/50 pt-12 pb-20 lg:pt-20 lg:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100/80 text-teal-800 font-bold text-sm mb-6">
+                        <i class="fa-solid fa-shield-heart"></i> Перший притулок-готель у Подільському районі
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight mb-6">
+                        Pets Patrol — на варті <span class="text-orange-500">безпеки людей</span> та <span class="text-teal-600">життя тварин</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        Ми об’єднуємо турботу про безпритульних хвостиків, безпеку на вулицях нашої громади та комфортний зоо-готель, де ви можете спокійно залишити свого улюбленця на час від’їзду.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#shelter" class="px-7 py-4 rounded-2xl bg-orange-500 text-white font-extrabold text-base shadow-lg shadow-orange-500/30 hover:bg-orange-600 transition flex items-center gap-2">
+                            <i class="fa-solid fa-heart"></i> Обрати друга з притулку
+                        </a>
+                        <a href="#hotel" class="px-7 py-4 rounded-2xl bg-white text-slate-800 border-2 border-slate-200 font-extrabold text-base hover:border-teal-500 hover:text-teal-600 transition flex items-center gap-2">
+                            <i class="fa-solid fa-hotel"></i> Залишити улюбленця в готелі
+                        </a>
+                    </div>
+
+                    <!-- Міні-статистика -->
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-200/80">
+                        <div>
+                            <div class="text-3xl font-black text-slate-900">24/7</div>
+                            <div class="text-sm font-semibold text-slate-500">Вет-нагляд та охорона</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black text-teal-600">100%</div>
+                            <div class="text-sm font-semibold text-slate-500">Вакцинація та стерилізація</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black text-orange-500">№1</div>
+                            <div class="text-sm font-semibold text-slate-500">Зоо-готель у районі</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Права картка з візуалом -->
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-amber-100">
+                        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80" alt="Щасливі собаки" class="w-full h-[460px] object-cover">
+                    </div>
+                    <!-- Плаваюча плашка -->
+                    <div class="absolute -bottom-6 -left-4 sm:left-6 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 max-w-xs">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-house-chimney-heart"></i>
+                            </div>
+                            <div>
+                                <div class="font-extrabold text-slate-900">Знайди друга онлайн</div>
+                                <div class="text-xs text-slate-500 font-semibold">Знайомся з хвостиками дистанційно та забирай у родину</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 1: Притулок (Каталог тварин) -->
+    <section id="shelter" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-orange-500 font-extrabold uppercase tracking-wider text-sm">Притулок Pets Patrol</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Вони чекають на свою родину</h2>
+                    <p class="text-slate-600 mt-2 max-w-2xl">Усі тварини у нашому притулку розділені за статтю, оглянуті ветеринаром, вакциновані та стерилізовані. Ви можете познайомитися з ними онлайн!</p>
+                </div>
+
+                <!-- Фільтри притулку -->
+                <div class="flex gap-2 bg-slate-100 p-1.5 rounded-2xl self-start">
+                    <button onclick="filterPets('all', event)" class="filter-btn active px-5 py-2 rounded-xl font-bold text-sm bg-white text-slate-900 shadow-sm transition">Усі</button>
+                    <button onclick="filterPets('dog', event)" class="filter-btn px-5 py-2 rounded-xl font-bold text-sm text-slate-600 hover:text-slate-900 transition">Собаки</button>
+                    <button onclick="filterPets('cat', event)" class="filter-btn px-5 py-2 rounded-xl font-bold text-sm text-slate-600 hover:text-slate-900 transition">Коти</button>
+                </div>
+            </div>
+
+            <!-- Картки тварин притулку -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="pets-grid">
+                <!-- Картка 1 -->
+                <div class="pet-card bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl transition group" data-type="dog">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" alt="Барон" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-teal-600 text-white text-xs font-bold">Хлопчик • 1.5 роки</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-black text-slate-900">Барон</h3>
+                            <span class="text-xs font-bold px-2.5 py-1 bg-green-100 text-green-700 rounded-lg">Вакцинований</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-5">Дуже добрий, активний та розумний пес. Любить прогулянки та швидко вчиться командам. Стане вірним охоронцем та другом.</p>
+                        <button onclick="openAdoptModal('Барон')" class="w-full py-3 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition">
+                            Познайомитись з Бароном
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Картка 2 -->
+                <div class="pet-card bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl transition group" data-type="cat">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" alt="Луна" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-pink-600 text-white text-xs font-bold">Дівчинка • 8 міс.</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-black text-slate-900">Луна</h3>
+                            <span class="text-xs font-bold px-2.5 py-1 bg-green-100 text-green-700 rounded-lg">Стерилізована</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-5">Ніжна муркотуха, яка обожнює сидіти на руках. Привчена до лотка, спокійна та охайна. Ідеальна для квартири.</p>
+                        <button onclick="openAdoptModal('Луна')" class="w-full py-3 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition">
+                            Познайомитись з Луною
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Картка 3 -->
+                <div class="pet-card bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl transition group" data-type="dog">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=800&q=80" alt="Бім" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-teal-600 text-white text-xs font-bold">Хлопчик • 6 міс.</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-black text-slate-900">Бім</h3>
+                            <span class="text-xs font-bold px-2.5 py-1 bg-green-100 text-green-700 rounded-lg">Вакцинований</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-5">Веселе цуценя, яке обожнює гратися. Чудово ладнає з дітьми та іншими тваринами. Шукає люблячих господарів.</p>
+                        <button onclick="openAdoptModal('Бім')" class="w-full py-3 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition">
+                            Познайомитись з Бімом
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 2: Зоо-готель (Каталог тварин для готелю + калькулятор) -->
+    <section id="hotel" class="py-20 bg-teal-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <span class="px-3 py-1 rounded-full bg-teal-800 text-teal-200 font-bold text-xs uppercase tracking-wider">Унікальна послуга в районі</span>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-4 mb-6">Зоо-готель Pets Patrol: їдьте у справах зі спокійним серцем</h2>
+                    <p class="text-teal-100 text-lg mb-8 leading-relaxed">
+                        Потрібно поїхати з міста, а улюбленця ні на кого залишити? У Подільському районі більше не потрібно шукати випадкових знайомих. Ми приймаємо собак, котів, гризунів та птахів!
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-teal-800 flex items-center justify-center text-orange-400 shrink-0 mt-1">
+                                <i class="fa-solid fa-bed"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Окремі комфортні зони та вольєри</h4>
+                                <p class="text-teal-200 text-sm">Індивідуальні лежанки, клітки та зони без стресу, регулярне прибирання та дезінфекція, автономне живлення (генератор).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-teal-800 flex items-center justify-center text-orange-400 shrink-0 mt-1">
+                                <i class="fa-solid fa-stethoscope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Постійний нагляд ветеринара та доглядальників</h4>
+                                <p class="text-teal-200 text-sm">Дотримання звичного раціону харчування, вигул на закритій території та щоденні фотозвіти для вас.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Форма бронювання + калькулятор -->
+                <div class="bg-white text-slate-800 rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-black mb-2">Розрахувати та забронювати номер</h3>
+                    <p class="text-slate-500 text-sm mb-6">Оберіть вид улюбленця та кількість діб перебування</p>
+
+                    <form onsubmit="submitHotelBooking(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Хто у вас?</label>
+                            <select id="petTypeHotel" onchange="calcHotelPrice()" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold focus:outline-none focus:border-teal-600">
+                                <option value="250">Кіт / Кішка (250 грн / доба)</option>
+                                <option value="350">Собака малий / середній (350 грн / доба)</option>
+                                <option value="450">Собака великий (450 грн / доба)</option>
+                                <option value="150">Гризун — хом’як, морська свинка, кролик (150 грн / доба)</option>
+                                <option value="150">Пташка — папуга, канарка, амадин (150 грн / доба)</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Кількість діб</label>
+                                <input type="number" id="hotelDays" value="3" min="1" max="60" oninput="calcHotelPrice()" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold focus:outline-none focus:border-teal-600">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Ваш телефон</label>
+                                <input type="tel" required placeholder="+38 (0__) ___ __ __" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold focus:outline-none focus:border-teal-600">
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex justify-between items-center">
+                            <span class="font-bold text-slate-700">Орієнтовна вартість:</span>
+                            <span id="hotelTotal" class="text-2xl font-black text-orange-600">750 грн</span>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-teal-600 text-white font-extrabold text-base hover:bg-teal-700 transition shadow-lg">
+                            Забронювати місце в готелі
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Каталог тварин, яких можна залишати в готелі -->
+            <div class="pt-12 border-t border-teal-800/80">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                    <div>
+                        <span class="text-orange-400 font-extrabold uppercase tracking-wider text-xs">Каталог розміщення</span>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white mt-1">Кого приймає готель Pets Patrol</h3>
+                        <p class="text-teal-200 text-sm mt-1">Окремі умови догляду для собак, котів, гризунів та птахів.</p>
+                    </div>
+
+                    <!-- Фільтри каталогу готелю -->
+                    <div class="flex flex-wrap gap-2 bg-teal-950/70 p-1.5 rounded-2xl self-start">
+                        <button onclick="filterHotelCatalog('all', event)" class="hotel-filter-btn active px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-orange-500 text-white shadow-sm transition">Усі</button>
+                        <button onclick="filterHotelCatalog('dog', event)" class="hotel-filter-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm text-teal-100 hover:text-white transition">Собаки</button>
+                        <button onclick="filterHotelCatalog('cat', event)" class="hotel-filter-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm text-teal-100 hover:text-white transition">Коти</button>
+                        <button onclick="filterHotelCatalog('rodent', event)" class="hotel-filter-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm text-teal-100 hover:text-white transition">Гризуни</button>
+                        <button onclick="filterHotelCatalog('bird', event)" class="hotel-filter-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm text-teal-100 hover:text-white transition">Пташки</button>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="hotel-catalog-grid">
+                    <!-- Собаки -->
+                    <div class="hotel-item bg-teal-950/60 border border-teal-800 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-orange-400/70 transition" data-category="dog">
+                        <div>
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80" alt="Собаки в готелі" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-bold">Собаки</span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xl font-black text-white">Собаки (малі та великі)</h4>
+                                </div>
+                                <p class="text-teal-200 text-xs leading-relaxed mb-4">
+                                    Просторі вольєри з м’якими лежанками, вигул на закритому майданчику двічі на день, індивідуальний раціон та нагляд спеціалістів.
+                                </p>
+                                <div class="text-sm font-extrabold text-orange-300 mb-4">від 350 грн / доба</div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <button onclick="selectHotelRateAndScroll('350')" class="w-full py-2.5 rounded-xl bg-teal-800 hover:bg-orange-500 text-white font-bold text-sm transition">
+                                Обрати номер для собаки
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Коти -->
+                    <div class="hotel-item bg-teal-950/60 border border-teal-800 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-orange-400/70 transition" data-category="cat">
+                        <div>
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80" alt="Коти в готелі" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-pink-500 text-white text-xs font-bold">Коти</span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xl font-black text-white">Коти та кішки</h4>
+                                </div>
+                                <p class="text-teal-200 text-xs leading-relaxed mb-4">
+                                    Окрема тиха зона без гавкоту собак, будиночки та кігтеточки, свіжий наповнювач, контроль апетиту та щоденні фотозвіти.
+                                </p>
+                                <div class="text-sm font-extrabold text-orange-300 mb-4">250 грн / доба</div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <button onclick="selectHotelRateAndScroll('250')" class="w-full py-2.5 rounded-xl bg-teal-800 hover:bg-orange-500 text-white font-bold text-sm transition">
+                                Обрати номер для кота
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Гризуни -->
+                    <div class="hotel-item bg-teal-950/60 border border-teal-800 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-orange-400/70 transition" data-category="rodent">
+                        <div>
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80" alt="Гризуни в готелі" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-slate-900 text-xs font-bold">Гризуни</span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xl font-black text-white">Гризуни та кролики</h4>
+                                </div>
+                                <p class="text-teal-200 text-xs leading-relaxed mb-4">
+                                    Для хом’яків, морських свинок, шиншил і декоративних кроликів. Стабільний температурний режим, сіно, свіжа вода та дбайливий догляд.
+                                </p>
+                                <div class="text-sm font-extrabold text-orange-300 mb-4">150 грн / доба</div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <button onclick="selectHotelRateAndScroll('150')" class="w-full py-2.5 rounded-xl bg-teal-800 hover:bg-orange-500 text-white font-bold text-sm transition">
+                                Обрати місце для гризуна
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Пташки -->
+                    <div class="hotel-item bg-teal-950/60 border border-teal-800 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-orange-400/70 transition" data-category="bird">
+                        <div>
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=800&q=80" alt="Пташки в готелі" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-sky-500 text-white text-xs font-bold">Пташки</span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xl font-black text-white">Пташки</h4>
+                                </div>
+                                <p class="text-teal-200 text-xs leading-relaxed mb-4">
+                                    Для папуг, канарок та інших пернатих. Захист від протягів і різких звуків, збалансований зерновий корм, фрукти та чиста вода щодня.
+                                </p>
+                                <div class="text-sm font-extrabold text-orange-300 mb-4">150 грн / доба</div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <button onclick="selectHotelRateAndScroll('150')" class="w-full py-2.5 rounded-xl bg-teal-800 hover:bg-orange-500 text-white font-bold text-sm transition">
+                                Обрати місце для пташки
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 3: Програма "З рук в руки" -->
+    <section id="hand-to-hand" class="py-20 bg-amber-50/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-amber-100 flex flex-col lg:flex-row items-center justify-between gap-10">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 font-bold text-xs uppercase mb-4">
+                        <i class="fa-solid fa-handshake-angle"></i> Соціальна програма
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">Програма «З рук в руки»</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Життєві обставини бувають різними. Якщо ви більше не маєте змоги утримувати домашнього улюбленця — <strong>не викидайте його на вулицю!</strong> Через наш сайт ви можете безпечно передати тваринку новому відповідальному господарю, а ми проведемо аудит умов проживання.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="openModal('handModal')" class="px-6 py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition">
+                            + Подати анкету тварини
+                        </button>
+                        <a href="#shelter" class="px-6 py-3.5 rounded-xl bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition">
+                            Переглянути анкети
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/3 bg-amber-50 p-6 rounded-2xl border border-amber-200">
+                    <h4 class="font-black text-lg text-slate-900 mb-3">Як це працює?</h4>
+                    <ol class="space-y-3 text-sm text-slate-700 font-semibold">
+                        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 text-xs">1</span> Ви заповнюєте анкету тваринки на сайті.</li>
+                        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 text-xs">2</span> Охочі взяти улюбленця залишають заявку.</li>
+                        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 text-xs">3</span> Наші волонтери перевіряють надійність нових рук.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 4: Послуги (Вирішення міських проблем) -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-teal-600 font-extrabold uppercase tracking-wider text-sm">Комплексний підхід</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Як ми вирішуємо проблему безпритульних тварин</h2>
+                <p class="text-slate-600 mt-3">Співпрацюємо з громадою, комунальними підприємствами та місцевою владою для безпеки людей і гуманного захисту тварин.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-truck-medical"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-2">Гуманний відлов</h3>
+                    <p class="text-slate-600 text-sm">Оперативне реагування на звернення мешканців щодо агресивних або травмованих тварин на вулицях.</p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-2">Вакцинація та стерилізація</h3>
+                    <p class="text-slate-600 text-sm">Контроль неконтрольованого розмноження та захист від сказу й інфекцій у власному вет-кабінеті.</p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-2">Аудит господарів</h3>
+                    <p class="text-slate-600 text-sm">Перевірка умов утримання тварин після прилаштування, щоб гарантувати безпеку та любов для хвостика.</p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-2">Волонтерський рух</h3>
+                    <p class="text-slate-600 text-sm">Залучення небайдужих мешканців та молоді до вигулу, соціалізації тварин та допомоги притулку.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 5: Форум спільноти -->
+    <section id="forum" class="py-20 bg-slate-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-orange-500 font-extrabold uppercase tracking-wider text-sm">Спільнота Pets Patrol</span>
+                <h2 class="text-3xl font-black text-slate-900 mt-1">Форум взаємодопомоги громади</h2>
+                <p class="text-slate-600 mt-2">Пошук загублених тварин, поради ветеринарів, координація волонтерів та допомога одне одному.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm space-y-4" id="forum-list">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/70">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-extrabold text-slate-900">Олена Коваленко <span class="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-0.5 rounded ml-2">Волонтер</span></span>
+                        <span class="text-xs text-slate-400">Сьогодні, 14:20</span>
+                    </div>
+                    <p class="text-slate-700 text-sm">Друзі, у суботу о 10:00 плануємо вигул собак у притулку та прибирання вольєрів. Хто може приєднатися?</p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/70">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-extrabold text-slate-900">Максим Бондар</span>
+                        <span class="text-xs text-slate-400">Вчора, 19:05</span>
+                    </div>
+                    <p class="text-slate-700 text-sm">Дякую команді Pets Patrol за зоо-готель! Залишали нашого лабрадора на 4 дні, щодня отримували фото. Все супер!</p>
+                </div>
+            </div>
+
+            <!-- Додати повідомлення на форум -->
+            <form onsubmit="addForumPost(event)" class="mt-6 flex flex-col sm:flex-row gap-3">
+                <input type="text" id="forumAuthor" required placeholder="Ваше ім'я" class="sm:w-1/4 px-4 py-3.5 rounded-xl bg-white border border-slate-200 font-semibold focus:outline-none focus:border-orange-500">
+                <input type="text" id="forumText" required placeholder="Напишіть повідомлення або запитання спільноті..." class="flex-1 px-4 py-3.5 rounded-xl bg-white border border-slate-200 font-semibold focus:outline-none focus:border-orange-500">
+                <button type="submit" class="px-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition">
+                    Опублікувати
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white">
+                    <i class="fa-solid fa-paw"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black text-white">PetsPatrol</span>
+                    <p class="text-xs text-slate-400">Соціальний проєкт • Подільський район, Одеська область</p>
+                </div>
+            </div>
+            <div class="text-sm text-center md:text-right">
+                <p class="text-slate-300 font-semibold">Команда проєкту Pets Patrol (Хакатон)</p>
+                <p class="text-xs mt-1">© 2026 Усі права захищено. Зроблено з любов’ю до хвостиків.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальне вікно: Заявка на знайомство/усиновлення -->
+    <div id="adoptModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-black text-slate-900">Знайомство: <span id="adoptPetName" class="text-orange-500"></span></h3>
+                <button onclick="closeModal('adoptModal')" class="text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Залиште контакти — наш адміністратор зв’яжеться з вами для відеознайомства або візиту до притулку.</p>
+            <form onsubmit="handleSimpleSubmit(event, 'adoptModal', 'Заявку прийнято! Ми скоро зателефонуємо для знайомства з хвостиком.')" class="space-y-3">
+                <input type="text" required placeholder="Ваше ім'я" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <input type="tel" required placeholder="Номер телефону" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600">Відправити заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальне вікно: Повідомити про зграю / відлов -->
+    <div id="reportModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-black text-red-600"><i class="fa-solid fa-triangle-exclamation"></i> Виклик служби Pets Patrol</h3>
+                <button onclick="closeModal('reportModal')" class="text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Повідомте адресу скупчення безпритульних тварин або якщо тварина потребує медичної допомоги.</p>
+            <form onsubmit="handleSimpleSubmit(event, 'reportModal', 'Звернення зареєстровано! Бригада гуманного відлову отримала координати.')" class="space-y-3">
+                <input type="text" required placeholder="Місто / Село та вулиця" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <textarea required placeholder="Опишіть ситуацію (кількість тварин, чи є агресія/травми)" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold"></textarea>
+                <input type="tel" required placeholder="Ваш телефон для уточнення" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700">Надіслати сигнал</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальне вікно: Програма "З рук в руки" -->
+    <div id="handModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-black text-slate-900">Анкета «З рук в руки»</h3>
+                <button onclick="closeModal('handModal')" class="text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="handleSimpleSubmit(event, 'handModal', 'Анкету додано на модерацію! Ми допоможемо знайти надійну родину.')" class="space-y-3">
+                <input type="text" required placeholder="Кличка та вид тварини (напр. Кіт Мурчик)" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <textarea required placeholder="Вік, характер, щеплення та причина передачі" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold"></textarea>
+                <input type="tel" required placeholder="Ваш контактний телефон" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600">Опублікувати анкету</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Скрипти інтерактивності -->
+    <script>
+        // Фільтрація карток у притулку
+        function filterPets(type, ev) {
+            const cards = document.querySelectorAll('.pet-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            const targetBtn = ev ? ev.currentTarget : null;
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+            if (targetBtn) {
+                targetBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                targetBtn.classList.remove('text-slate-600');
+            }
+
+            cards.forEach(card => {
+                if (type === 'all' || card.dataset.type === type) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Фільтрація каталогу готелю (собаки, коти, гризуни, пташки)
+        function filterHotelCatalog(category, ev) {
+            const items = document.querySelectorAll('.hotel-item');
+            const buttons = document.querySelectorAll('.hotel-filter-btn');
+            const targetBtn = ev ? ev.currentTarget : null;
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-orange-500', 'text-white', 'shadow-sm');
+                btn.classList.add('text-teal-100');
+            });
+            if (targetBtn) {
+                targetBtn.classList.add('bg-orange-500', 'text-white', 'shadow-sm');
+                targetBtn.classList.remove('text-teal-100');
+            }
+
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Підстановка тарифу з каталогу готелю в калькулятор
+        function selectHotelRateAndScroll(rateValue) {
+            const select = document.getElementById('petTypeHotel');
+            select.value = rateValue;
+            calcHotelPrice();
+            document.getElementById('hotel').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Калькулятор зоо-готелю
+        function calcHotelPrice() {
+            const rate = parseInt(document.getElementById('petTypeHotel').value);
+            const days = parseInt(document.getElementById('hotelDays').value) || 1;
+            document.getElementById('hotelTotal').innerText = (rate * days) + ' грн';
+        }
+
+        function submitHotelBooking(e) {
+            e.preventDefault();
+            alert('Номер у зоо-готелі Pets Patrol успішно заброньовано! Адміністратор зв’яжеться з вами для підтвердження.');
+            e.target.reset();
+            calcHotelPrice();
+        }
+
+        // Модальні вікна
+        function openModal(id) {
+            const el = document.getElementById(id);
+            el.classList.remove('hidden');
+            el.classList.add('flex');
+        }
+
+        function closeModal(id) {
+            const el = document.getElementById(id);
+            el.classList.add('hidden');
+            el.classList.remove('flex');
+        }
+
+        function openAdoptModal(petName) {
+            document.getElementById('adoptPetName').innerText = petName;
+            openModal('adoptModal');
+        }
+
+        function handleSimpleSubmit(e, modalId, msg) {
+            e.preventDefault();
+            closeModal(modalId);
+            alert(msg);
+            e.target.reset();
+        }
+
+        // Додавання повідомлення на форум
+        function addForumPost(e) {
+            e.preventDefault();
+            const author = document.getElementById('forumAuthor').value;
+            const text = document.getElementById('forumText').value;
+            const list = document.getElementById('forum-list');
+
+            const post = document.createElement('div');
+            post.className = 'p-4 rounded-2xl bg-amber-50/60 border border-amber-200';
+            post.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <span class="font-extrabold text-slate-900">${author}</span>
+                    <span class="text-xs text-slate-400">Щойно</span>
+                </div>
+                <p class="text-slate-700 text-sm">${text}</p>
+            `;
+            list.prepend(post);
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
