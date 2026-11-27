@@ -111,7 +111,6 @@
                     <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-amber-100">
                         <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80" alt="Щасливі собаки" class="w-full h-[460px] object-cover">
                     </div>
-                    <!-- Плаваюча плашка -->
                     <div class="absolute -bottom-6 -left-4 sm:left-6 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 max-w-xs">
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-2xl">
@@ -306,9 +305,7 @@
                                 <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-bold">Собаки</span>
                             </div>
                             <div class="p-5">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-xl font-black text-white">Собаки (малі та великі)</h4>
-                                </div>
+                                <h4 class="text-xl font-black text-white mb-2">Собаки (малі та великі)</h4>
                                 <p class="text-teal-200 text-xs leading-relaxed mb-4">
                                     Просторі вольєри з м’якими лежанками, вигул на закритому майданчику двічі на день, індивідуальний раціон та нагляд спеціалістів.
                                 </p>
@@ -330,9 +327,7 @@
                                 <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-pink-500 text-white text-xs font-bold">Коти</span>
                             </div>
                             <div class="p-5">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-xl font-black text-white">Коти та кішки</h4>
-                                </div>
+                                <h4 class="text-xl font-black text-white mb-2">Коти та кішки</h4>
                                 <p class="text-teal-200 text-xs leading-relaxed mb-4">
                                     Окрема тиха зона без гавкоту собак, будиночки та кігтеточки, свіжий наповнювач, контроль апетиту та щоденні фотозвіти.
                                 </p>
@@ -354,9 +349,7 @@
                                 <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-slate-900 text-xs font-bold">Гризуни</span>
                             </div>
                             <div class="p-5">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-xl font-black text-white">Гризуни та кролики</h4>
-                                </div>
+                                <h4 class="text-xl font-black text-white mb-2">Гризуни та кролики</h4>
                                 <p class="text-teal-200 text-xs leading-relaxed mb-4">
                                     Для хом’яків, морських свинок, шиншил і декоративних кроликів. Стабільний температурний режим, сіно, свіжа вода та дбайливий догляд.
                                 </p>
@@ -378,9 +371,7 @@
                                 <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-sky-500 text-white text-xs font-bold">Пташки</span>
                             </div>
                             <div class="p-5">
-                                <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-xl font-black text-white">Пташки</h4>
-                                </div>
+                                <h4 class="text-xl font-black text-white mb-2">Пташки</h4>
                                 <p class="text-teal-200 text-xs leading-relaxed mb-4">
                                     Для папуг, канарок та інших пернатих. Захист від протягів і різких звуків, збалансований зерновий корм, фрукти та чиста вода щодня.
                                 </p>
@@ -541,9 +532,9 @@
                 <button onclick="closeModal('adoptModal')" class="text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <p class="text-sm text-slate-600 mb-4">Залиште контакти — наш адміністратор зв’яжеться з вами для відеознайомства або візиту до притулку.</p>
-            <form onsubmit="handleSimpleSubmit(event, 'adoptModal', 'Заявку прийнято! Ми скоро зателефонуємо для знайомства з хвостиком.')" class="space-y-3">
-                <input type="text" required placeholder="Ваше ім'я" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
-                <input type="tel" required placeholder="Номер телефону" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+            <form onsubmit="submitAdoptForm(event)" class="space-y-3">
+                <input type="text" id="adoptUserName" required placeholder="Ваше ім'я" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <input type="tel" id="adoptUserPhone" required placeholder="Номер телефону" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
                 <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600">Відправити заявку</button>
             </form>
         </div>
@@ -557,10 +548,10 @@
                 <button onclick="closeModal('reportModal')" class="text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <p class="text-sm text-slate-600 mb-4">Повідомте адресу скупчення безпритульних тварин або якщо тварина потребує медичної допомоги.</p>
-            <form onsubmit="handleSimpleSubmit(event, 'reportModal', 'Звернення зареєстровано! Бригада гуманного відлову отримала координати.')" class="space-y-3">
-                <input type="text" required placeholder="Місто / Село та вулиця" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
-                <textarea required placeholder="Опишіть ситуацію (кількість тварин, чи є агресія/травми)" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold"></textarea>
-                <input type="tel" required placeholder="Ваш телефон для уточнення" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+            <form onsubmit="submitReportForm(event)" class="space-y-3">
+                <input type="text" id="reportAddress" required placeholder="Місто / Село та вулиця" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <textarea id="reportDetails" required placeholder="Опишіть ситуацію (кількість тварин, чи є агресія/травми)" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold"></textarea>
+                <input type="tel" id="reportPhone" required placeholder="Ваш телефон для уточнення" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
                 <button type="submit" class="w-full py-3.5 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700">Надіслати сигнал</button>
             </form>
         </div>
@@ -573,17 +564,45 @@
                 <h3 class="text-xl font-black text-slate-900">Анкета «З рук в руки»</h3>
                 <button onclick="closeModal('handModal')" class="text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <form onsubmit="handleSimpleSubmit(event, 'handModal', 'Анкету додано на модерацію! Ми допоможемо знайти надійну родину.')" class="space-y-3">
-                <input type="text" required placeholder="Кличка та вид тварини (напр. Кіт Мурчик)" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
-                <textarea required placeholder="Вік, характер, щеплення та причина передачі" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold"></textarea>
-                <input type="tel" required placeholder="Ваш контактний телефон" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+            <form onsubmit="submitHandForm(event)" class="space-y-3">
+                <input type="text" id="handPetInfo" required placeholder="Кличка та вид тварини (напр. Кіт Мурчик)" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
+                <textarea id="handPetDesc" required placeholder="Вік, характер, щеплення та причина передачі" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold"></textarea>
+                <input type="tel" id="handPhone" required placeholder="Ваш контактний телефон" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold">
                 <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600">Опублікувати анкету</button>
             </form>
         </div>
     </div>
 
-    <!-- Скрипти інтерактивності -->
+    <!-- Скрипти інтерактивності та сповіщень у Telegram -->
     <script>
+        // ==========================================
+        // НАЛАШТУВАННЯ TELEGRAM-БОТА (ЗАПОВНИ ТУТ)
+        // ==========================================
+        const BOT_TOKEN = '9008047249:AAEYwDpxz2NjOL6RXAi1782Mb6FL-iiqcV0';
+        const CHAT_ID = '1644556559';
+
+        // Універсальна функція відправки повідомлення в Telegram
+        async function sendTelegramNotification(text) {
+            if (!BOT_TOKEN || BOT_TOKEN.includes('ВСТАВЬ_СЮДА')) {
+                console.warn('Telegram BOT_TOKEN не налаштовано.');
+                return false;
+            }
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: text
+                    })
+                });
+                return response.ok;
+            } catch (error) {
+                console.error('Помилка відправки в Telegram:', error);
+                return false;
+            }
+        }
+
         // Фільтрація карток у притулку
         function filterPets(type, ev) {
             const cards = document.querySelectorAll('.pet-card');
@@ -608,7 +627,7 @@
             });
         }
 
-        // Фільтрація каталогу готелю (собаки, коти, гризуни, пташки)
+        // Фільтрація каталогу готелю
         function filterHotelCatalog(category, ev) {
             const items = document.querySelectorAll('.hotel-item');
             const buttons = document.querySelectorAll('.hotel-filter-btn');
@@ -647,8 +666,22 @@
             document.getElementById('hotelTotal').innerText = (rate * days) + ' грн';
         }
 
-        function submitHotelBooking(e) {
+        // 1. Бронювання готелю -> Telegram
+        async function submitHotelBooking(e) {
             e.preventDefault();
+            const select = document.getElementById('petTypeHotel');
+            const petText = select.options[select.selectedIndex].text;
+            const days = document.getElementById('hotelDays').value;
+            const phone = e.target.querySelector('input[type="tel"]').value;
+            const total = document.getElementById('hotelTotal').innerText;
+
+            const message = `🏨 НОВЕ БРОНЮВАННЯ ЗОО-ГОТЕЛЮ!\n\n` +
+                            `🐾 Тварина: ${petText}\n` +
+                            `📅 Кількість діб: ${days}\n` +
+                            `💰 Вартість: ${total}\n` +
+                            `📞 Телефон: ${phone}`;
+
+            await sendTelegramNotification(message);
             alert('Номер у зоо-готелі Pets Patrol успішно заброньовано! Адміністратор зв’яжеться з вами для підтвердження.');
             e.target.reset();
             calcHotelPrice();
@@ -672,15 +705,62 @@
             openModal('adoptModal');
         }
 
-        function handleSimpleSubmit(e, modalId, msg) {
+        // 2. Заявка на знайомство з притулку -> Telegram
+        async function submitAdoptForm(e) {
             e.preventDefault();
-            closeModal(modalId);
-            alert(msg);
+            const petName = document.getElementById('adoptPetName').innerText;
+            const userName = document.getElementById('adoptUserName').value;
+            const userPhone = document.getElementById('adoptUserPhone').value;
+
+            const message = `❤️ ЗАЯВКА НА ЗНАЙОМСТВО (ПРИТУЛОК)!\n\n` +
+                            `🐶 Хвостик: ${petName}\n` +
+                            `👤 Ім'я: ${userName}\n` +
+                            `📞 Телефон: ${userPhone}`;
+
+            await sendTelegramNotification(message);
+            closeModal('adoptModal');
+            alert('Заявку прийнято! Ми скоро зателефонуємо для знайомства з хвостиком.');
             e.target.reset();
         }
 
-        // Додавання повідомлення на форум
-        function addForumPost(e) {
+        // 3. Повідомлення про зграю / виклик служби -> Telegram
+        async function submitReportForm(e) {
+            e.preventDefault();
+            const address = document.getElementById('reportAddress').value;
+            const details = document.getElementById('reportDetails').value;
+            const phone = document.getElementById('reportPhone').value;
+
+            const message = `🚨 ВИКЛИК СЛУЖБИ PETS PATROL!\n\n` +
+                            `📍 Адреса: ${address}\n` +
+                            `📝 Ситуація: ${details}\n` +
+                            `📞 Телефон: ${phone}`;
+
+            await sendTelegramNotification(message);
+            closeModal('reportModal');
+            alert('Звернення зареєстровано! Бригада гуманного відлову отримала координати.');
+            e.target.reset();
+        }
+
+        // 4. Програма "З рук в руки" -> Telegram
+        async function submitHandForm(e) {
+            e.preventDefault();
+            const petInfo = document.getElementById('handPetInfo').value;
+            const petDesc = document.getElementById('handPetDesc').value;
+            const phone = document.getElementById('handPhone').value;
+
+            const message = `🤝 НОВА АНКЕТА «З РУК В РУКИ»!\n\n` +
+                            `🐾 Тварина: ${petInfo}\n` +
+                            `📋 Опис: ${petDesc}\n` +
+                            `📞 Телефон: ${phone}`;
+
+            await sendTelegramNotification(message);
+            closeModal('handModal');
+            alert('Анкету додано на модерацію! Ми допоможемо знайти надійну родину.');
+            e.target.reset();
+        }
+
+        // 5. Новий коментар на форумі -> на сторінку + в Telegram
+        async function addForumPost(e) {
             e.preventDefault();
             const author = document.getElementById('forumAuthor').value;
             const text = document.getElementById('forumText').value;
@@ -696,6 +776,12 @@
                 <p class="text-slate-700 text-sm">${text}</p>
             `;
             list.prepend(post);
+
+            const message = `💬 НОВИЙ КОМЕНТАР НА ФОРУМІ!\n\n` +
+                            `👤 Автор: ${author}\n` +
+                            `✉️ Повідомлення: ${text}`;
+
+            await sendTelegramNotification(message);
             e.target.reset();
         }
     </script>
