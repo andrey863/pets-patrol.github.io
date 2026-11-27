@@ -54,12 +54,15 @@
                 </nav>
 
                 <!-- Кнопки дій -->
-                <div class="flex items-center gap-3">
-                    <button onclick="openModal('reportModal')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-50 text-red-600 font-bold text-sm hover:bg-red-100 transition">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button onclick="openModal('donateModal')" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-teal-50 text-teal-700 border border-teal-200 font-extrabold text-sm hover:bg-teal-100 transition">
+                        <i class="fa-solid fa-hand-holding-heart text-teal-600"></i> <span class="hidden sm:inline">Підтримати</span>
+                    </button>
+                    <button onclick="openModal('reportModal')" class="hidden lg:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-50 text-red-600 font-bold text-sm hover:bg-red-100 transition">
                         <i class="fa-solid fa-triangle-exclamation"></i> Повідомити про зграю
                     </button>
-                    <a href="#hotel" class="px-5 py-2.5 rounded-xl bg-orange-500 text-white font-bold text-sm shadow-md shadow-orange-500/20 hover:bg-orange-600 transition">
-                        Забронювати готель
+                    <a href="#hotel" class="px-4 sm:px-5 py-2.5 rounded-xl bg-orange-500 text-white font-bold text-sm shadow-md shadow-orange-500/20 hover:bg-orange-600 transition">
+                        Зоо-готель
                     </a>
                 </div>
             </div>
@@ -246,9 +249,10 @@
                         <div>
                             <label class="block text-sm font-bold text-slate-700 mb-1">Хто у вас?</label>
                             <select id="petTypeHotel" onchange="calcHotelPrice()" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold focus:outline-none focus:border-teal-600">
-                                <option value="250">Кіт / Кішка (250 грн / доба)</option>
-                                <option value="350">Собака малий / середній (350 грн / доба)</option>
-                                <option value="450">Собака великий (450 грн / доба)</option>
+                                <option value="200">Малий кіт (200 грн / доба)</option>
+                                <option value="250">Великий кіт (250 грн / доба)</option>
+                                <option value="250">Собака малий / середній (250 грн / доба)</option>
+                                <option value="300">Собака великий (300 грн / доба)</option>
                                 <option value="150">Гризун — хом’як, морська свинка, кролик (150 грн / доба)</option>
                                 <option value="150">Пташка — папуга, канарка, амадин (150 грн / доба)</option>
                             </select>
@@ -267,7 +271,7 @@
 
                         <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex justify-between items-center">
                             <span class="font-bold text-slate-700">Орієнтовна вартість:</span>
-                            <span id="hotelTotal" class="text-2xl font-black text-orange-600">750 грн</span>
+                            <span id="hotelTotal" class="text-2xl font-black text-orange-600">600 грн</span>
                         </div>
 
                         <button type="submit" class="w-full py-4 rounded-xl bg-teal-600 text-white font-extrabold text-base hover:bg-teal-700 transition shadow-lg">
@@ -507,7 +511,8 @@
 
     <!-- Футер -->
     <footer class="bg-slate-900 text-slate-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            <!-- Лого -->
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white">
                     <i class="fa-solid fa-paw"></i>
@@ -517,6 +522,21 @@
                     <p class="text-xs text-slate-400">Соціальний проєкт • Подільський район, Одеська область</p>
                 </div>
             </div>
+
+            <!-- Соцмережі та Донат -->
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="https://instagram.com/ТВОЙ_ИНСТАГРАМ" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-pink-600 text-white font-bold text-sm transition">
+                    <i class="fa-brands fa-instagram text-lg"></i> Instagram
+                </a>
+                <a href="https://tiktok.com/@ТВОЙ_ТИКТОК" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition">
+                    <i class="fa-brands fa-tiktok text-lg"></i> TikTok
+                </a>
+                <button onclick="openModal('donateModal')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm shadow-lg shadow-orange-500/20 transition">
+                    <i class="fa-solid fa-heart"></i> Задонатити хвостикам
+                </button>
+            </div>
+
+            <!-- Копірайт -->
             <div class="text-sm text-center md:text-right">
                 <p class="text-slate-300 font-semibold">Команда проєкту Pets Patrol (Хакатон)</p>
                 <p class="text-xs mt-1">© 2026 Усі права захищено. Зроблено з любов’ю до хвостиків.</p>
@@ -572,7 +592,26 @@
             </form>
         </div>
     </div>
+<!-- Модальне вікно: Донат на підтримку притулку -->
+    <div id="donateModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="text-2xl font-black text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-orange-500"></i> Підтримати притулок
+                </h3>
+                <button onclick="closeModal('donateModal')" class="text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-sm text-slate-600 mb-5">Усі кошти йдуть на корм, вакцинацію та лікування безпритульних тварин Подільського району.</p>
 
+            <form onsubmit="submitDonateForm(event)" class="space-y-3">
+                <input type="text" id="donateName" placeholder="Ваше ім'я (необов'язково)" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold focus:outline-none focus:border-teal-600">
+                <input type="number" id="donateAmount" required min="1" placeholder="Сума донату (грн)" class="w-full px-4 py-3 rounded-xl border border-slate-200 font-semibold focus:outline-none focus:border-teal-600">
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-teal-600 text-white font-extrabold hover:bg-teal-700 transition shadow-md">
+                    Підтримати ❤️
+                </button>
+            </form>
+        </div>
+    </div>
     <!-- Скрипти інтерактивності та сповіщень у Telegram -->
     <script>
         // ==========================================
@@ -784,6 +823,21 @@
             await sendTelegramNotification(message);
             e.target.reset();
         }
+        // 6. Повідомлення про донат -> Telegram
+        async function submitDonateForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('donateName').value || 'Анонімний благодійник';
+            const amount = document.getElementById('donateAmount').value;
+
+            const message = `💖 НОВИЙ ДОНАТ ДЛЯ PETS PATROL!\n\n` +
+                            `👤 Від кого: ${name}\n` +
+                            `💰 Сума: ${amount} грн`;
+
+            await sendTelegramNotification(message);
+            closeModal('donateModal');
+            alert('Дякуємо за вашу доброту та підтримку хвостиків! ❤️');
+            e.target.reset();
+        
     </script>
 </body>
 </html>
